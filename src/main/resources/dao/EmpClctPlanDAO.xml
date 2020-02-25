@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.EmpClctPlanDAO">
+  <resultMap id="BaseResultMap" type="dto.EmpClctPlan">
+    <id column="CLCT_PLAN_ID" jdbcType="VARCHAR" property="clctPlanId" />
+    <result column="BIZ_LOG_ID" jdbcType="VARCHAR" property="bizLogId" />
+    <result column="UNIF_CLCT_FLAG" jdbcType="VARCHAR" property="unifClctFlag" />
+    <result column="ACCRYM" jdbcType="VARCHAR" property="accrym" />
+    <result column="CASHYM_BEGN" jdbcType="VARCHAR" property="cashymBegn" />
+    <result column="CASHYM_END" jdbcType="VARCHAR" property="cashymEnd" />
+    <result column="YEAR" jdbcType="VARCHAR" property="year" />
+    <result column="OPTINS_CODE" jdbcType="VARCHAR" property="optinsCode" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="ALL_EMP" jdbcType="VARCHAR" property="allEmp" />
+    <result column="ALL_INSUTYPE_FLAG" jdbcType="VARCHAR" property="allInsutypeFlag" />
+    <result column="INSUTYPE" jdbcType="VARCHAR" property="insutype" />
+    <result column="BIZ_TYPE_CODG" jdbcType="VARCHAR" property="bizTypeCodg" />
+    <result column="PLAN_TIME" jdbcType="TIMESTAMP" property="planTime" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CLCT_PLAN_ID, BIZ_LOG_ID, UNIF_CLCT_FLAG, ACCRYM, CASHYM_BEGN, CASHYM_END, `YEAR`, 
+    OPTINS_CODE, VALI_FLAG, ALL_EMP, ALL_INSUTYPE_FLAG, INSUTYPE, BIZ_TYPE_CODG, PLAN_TIME, 
+    MEMO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from EMP_CLCT_PLAN
+    where CLCT_PLAN_ID = #{clctPlanId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from EMP_CLCT_PLAN
+    where CLCT_PLAN_ID = #{clctPlanId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.EmpClctPlan">
+    insert into EMP_CLCT_PLAN (CLCT_PLAN_ID, BIZ_LOG_ID, UNIF_CLCT_FLAG, 
+      ACCRYM, CASHYM_BEGN, CASHYM_END, 
+      `YEAR`, OPTINS_CODE, VALI_FLAG, 
+      ALL_EMP, ALL_INSUTYPE_FLAG, INSUTYPE, 
+      BIZ_TYPE_CODG, PLAN_TIME, MEMO
+      )
+    values (#{clctPlanId,jdbcType=VARCHAR}, #{bizLogId,jdbcType=VARCHAR}, #{unifClctFlag,jdbcType=VARCHAR}, 
+      #{accrym,jdbcType=VARCHAR}, #{cashymBegn,jdbcType=VARCHAR}, #{cashymEnd,jdbcType=VARCHAR}, 
+      #{year,jdbcType=VARCHAR}, #{optinsCode,jdbcType=VARCHAR}, #{valiFlag,jdbcType=VARCHAR}, 
+      #{allEmp,jdbcType=VARCHAR}, #{allInsutypeFlag,jdbcType=VARCHAR}, #{insutype,jdbcType=VARCHAR}, 
+      #{bizTypeCodg,jdbcType=VARCHAR}, #{planTime,jdbcType=TIMESTAMP}, #{memo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="dto.EmpClctPlan">
+    insert into EMP_CLCT_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clctPlanId != null">
+        CLCT_PLAN_ID,
+      </if>
+      <if test="bizLogId != null">
+        BIZ_LOG_ID,
+      </if>
+      <if test="unifClctFlag != null">
+        UNIF_CLCT_FLAG,
+      </if>
+      <if test="accrym != null">
+        ACCRYM,
+      </if>
+      <if test="cashymBegn != null">
+        CASHYM_BEGN,
+      </if>
+      <if test="cashymEnd != null">
+        CASHYM_END,
+      </if>
+      <if test="year != null">
+        `YEAR`,
+      </if>
+      <if test="optinsCode != null">
+        OPTINS_CODE,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="allEmp != null">
+        ALL_EMP,
+      </if>
+      <if test="allInsutypeFlag != null">
+        ALL_INSUTYPE_FLAG,
+      </if>
+      <if test="insutype != null">
+        INSUTYPE,
+      </if>
+      <if test="bizTypeCodg != null">
+        BIZ_TYPE_CODG,
+      </if>
+      <if test="planTime != null">
+        PLAN_TIME,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clctPlanId != null">
+        #{clctPlanId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizLogId != null">
+        #{bizLogId,jdbcType=VARCHAR},
+      </if>
+      <if test="unifClctFlag != null">
+        #{unifClctFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="accrym != null">
+        #{accrym,jdbcType=VARCHAR},
+      </if>
+      <if test="cashymBegn != null">
+        #{cashymBegn,jdbcType=VARCHAR},
+      </if>
+      <if test="cashymEnd != null">
+        #{cashymEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsCode != null">
+        #{optinsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="allEmp != null">
+        #{allEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="allInsutypeFlag != null">
+        #{allInsutypeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="insutype != null">
+        #{insutype,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeCodg != null">
+        #{bizTypeCodg,jdbcType=VARCHAR},
+      </if>
+      <if test="planTime != null">
+        #{planTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.EmpClctPlan">
+    update EMP_CLCT_PLAN
+    <set>
+      <if test="bizLogId != null">
+        BIZ_LOG_ID = #{bizLogId,jdbcType=VARCHAR},
+      </if>
+      <if test="unifClctFlag != null">
+        UNIF_CLCT_FLAG = #{unifClctFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="accrym != null">
+        ACCRYM = #{accrym,jdbcType=VARCHAR},
+      </if>
+      <if test="cashymBegn != null">
+        CASHYM_BEGN = #{cashymBegn,jdbcType=VARCHAR},
+      </if>
+      <if test="cashymEnd != null">
+        CASHYM_END = #{cashymEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        `YEAR` = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsCode != null">
+        OPTINS_CODE = #{optinsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="allEmp != null">
+        ALL_EMP = #{allEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="allInsutypeFlag != null">
+        ALL_INSUTYPE_FLAG = #{allInsutypeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="insutype != null">
+        INSUTYPE = #{insutype,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeCodg != null">
+        BIZ_TYPE_CODG = #{bizTypeCodg,jdbcType=VARCHAR},
+      </if>
+      <if test="planTime != null">
+        PLAN_TIME = #{planTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CLCT_PLAN_ID = #{clctPlanId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.EmpClctPlan">
+    update EMP_CLCT_PLAN
+    set BIZ_LOG_ID = #{bizLogId,jdbcType=VARCHAR},
+      UNIF_CLCT_FLAG = #{unifClctFlag,jdbcType=VARCHAR},
+      ACCRYM = #{accrym,jdbcType=VARCHAR},
+      CASHYM_BEGN = #{cashymBegn,jdbcType=VARCHAR},
+      CASHYM_END = #{cashymEnd,jdbcType=VARCHAR},
+      `YEAR` = #{year,jdbcType=VARCHAR},
+      OPTINS_CODE = #{optinsCode,jdbcType=VARCHAR},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      ALL_EMP = #{allEmp,jdbcType=VARCHAR},
+      ALL_INSUTYPE_FLAG = #{allInsutypeFlag,jdbcType=VARCHAR},
+      INSUTYPE = #{insutype,jdbcType=VARCHAR},
+      BIZ_TYPE_CODG = #{bizTypeCodg,jdbcType=VARCHAR},
+      PLAN_TIME = #{planTime,jdbcType=TIMESTAMP},
+      MEMO = #{memo,jdbcType=VARCHAR}
+    where CLCT_PLAN_ID = #{clctPlanId,jdbcType=VARCHAR}
+  </update>
+</mapper>

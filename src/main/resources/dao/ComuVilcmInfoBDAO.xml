@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ComuVilcmInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.ComuVilcmInfoB">
+    <id column="COMU_VILCM_INFO_EVT_ID" jdbcType="VARCHAR" property="comuVilcmInfoEvtId" />
+    <result column="COMU_VILCM_ADMDVS_NO" jdbcType="VARCHAR" property="comuVilcmAdmdvsNo" />
+    <result column="COMU_VILCM_NAME" jdbcType="VARCHAR" property="comuVilcmName" />
+    <result column="COMU_VILCM_TYPE" jdbcType="VARCHAR" property="comuVilcmType" />
+    <result column="VILCM_FLAG" jdbcType="VARCHAR" property="vilcmFlag" />
+    <result column="SUBDAGCY_ID" jdbcType="VARCHAR" property="subdagcyId" />
+    <result column="ORG_VALI_STAS" jdbcType="VARCHAR" property="orgValiStas" />
+    <result column="CONER_NAME" jdbcType="VARCHAR" property="conerName" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="ADDR" jdbcType="VARCHAR" property="addr" />
+    <result column="POSCODE" jdbcType="VARCHAR" property="poscode" />
+    <result column="CONER_EMAIL" jdbcType="VARCHAR" property="conerEmail" />
+    <result column="FAX_NO" jdbcType="VARCHAR" property="faxNo" />
+    <result column="APRV_ESTA_DEPT" jdbcType="VARCHAR" property="aprvEstaDept" />
+    <result column="APRV_ESTA_DATE" jdbcType="DATE" property="aprvEstaDate" />
+    <result column="APRV_ESTA_DOCNO" jdbcType="VARCHAR" property="aprvEstaDocno" />
+    <result column="PRNT_ADMDVS" jdbcType="VARCHAR" property="prntAdmdvs" />
+    <result column="INSU_OPTINS" jdbcType="VARCHAR" property="insuOptins" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="POOLAREA" jdbcType="VARCHAR" property="poolarea" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+    <result column="DATA_SOUC" jdbcType="VARCHAR" property="dataSouc" />
+    <result column="COMU_VILCM_NO" jdbcType="VARCHAR" property="comuVilcmNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COMU_VILCM_INFO_EVT_ID, COMU_VILCM_ADMDVS_NO, COMU_VILCM_NAME, COMU_VILCM_TYPE, VILCM_FLAG, 
+    SUBDAGCY_ID, ORG_VALI_STAS, CONER_NAME, TEL, ADDR, POSCODE, CONER_EMAIL, FAX_NO, 
+    APRV_ESTA_DEPT, APRV_ESTA_DATE, APRV_ESTA_DOCNO, PRNT_ADMDVS, INSU_OPTINS, VALI_FLAG, 
+    RID, CRTER, CRTER_NAME, CRTE_TIME, CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, OPTINS, 
+    POOLAREA, VER, DATA_SOUC, COMU_VILCM_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comu_vilcm_info_b
+    where COMU_VILCM_INFO_EVT_ID = #{comuVilcmInfoEvtId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from comu_vilcm_info_b
+    where COMU_VILCM_INFO_EVT_ID = #{comuVilcmInfoEvtId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.ComuVilcmInfoB">
+    insert into comu_vilcm_info_b (COMU_VILCM_INFO_EVT_ID, COMU_VILCM_ADMDVS_NO, 
+      COMU_VILCM_NAME, COMU_VILCM_TYPE, VILCM_FLAG, 
+      SUBDAGCY_ID, ORG_VALI_STAS, CONER_NAME, 
+      TEL, ADDR, POSCODE, 
+      CONER_EMAIL, FAX_NO, APRV_ESTA_DEPT, 
+      APRV_ESTA_DATE, APRV_ESTA_DOCNO, PRNT_ADMDVS, 
+      INSU_OPTINS, VALI_FLAG, RID, 
+      CRTER, CRTER_NAME, CRTE_TIME, 
+      CRTE_OPTINS, OPTER, OPTER_NAME, 
+      OPT_TIME, OPTINS, POOLAREA, 
+      VER, DATA_SOUC, COMU_VILCM_NO
+      )
+    values (#{comuVilcmInfoEvtId,jdbcType=VARCHAR}, #{comuVilcmAdmdvsNo,jdbcType=VARCHAR}, 
+      #{comuVilcmName,jdbcType=VARCHAR}, #{comuVilcmType,jdbcType=VARCHAR}, #{vilcmFlag,jdbcType=VARCHAR}, 
+      #{subdagcyId,jdbcType=VARCHAR}, #{orgValiStas,jdbcType=VARCHAR}, #{conerName,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{poscode,jdbcType=VARCHAR}, 
+      #{conerEmail,jdbcType=VARCHAR}, #{faxNo,jdbcType=VARCHAR}, #{aprvEstaDept,jdbcType=VARCHAR}, 
+      #{aprvEstaDate,jdbcType=DATE}, #{aprvEstaDocno,jdbcType=VARCHAR}, #{prntAdmdvs,jdbcType=VARCHAR}, 
+      #{insuOptins,jdbcType=VARCHAR}, #{valiFlag,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, 
+      #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, 
+      #{crteOptins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, 
+      #{optTime,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, #{poolarea,jdbcType=VARCHAR}, 
+      #{ver,jdbcType=VARCHAR}, #{dataSouc,jdbcType=VARCHAR}, #{comuVilcmNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="dto.ComuVilcmInfoB">
+    insert into comu_vilcm_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comuVilcmInfoEvtId != null">
+        COMU_VILCM_INFO_EVT_ID,
+      </if>
+      <if test="comuVilcmAdmdvsNo != null">
+        COMU_VILCM_ADMDVS_NO,
+      </if>
+      <if test="comuVilcmName != null">
+        COMU_VILCM_NAME,
+      </if>
+      <if test="comuVilcmType != null">
+        COMU_VILCM_TYPE,
+      </if>
+      <if test="vilcmFlag != null">
+        VILCM_FLAG,
+      </if>
+      <if test="subdagcyId != null">
+        SUBDAGCY_ID,
+      </if>
+      <if test="orgValiStas != null">
+        ORG_VALI_STAS,
+      </if>
+      <if test="conerName != null">
+        CONER_NAME,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="poscode != null">
+        POSCODE,
+      </if>
+      <if test="conerEmail != null">
+        CONER_EMAIL,
+      </if>
+      <if test="faxNo != null">
+        FAX_NO,
+      </if>
+      <if test="aprvEstaDept != null">
+        APRV_ESTA_DEPT,
+      </if>
+      <if test="aprvEstaDate != null">
+        APRV_ESTA_DATE,
+      </if>
+      <if test="aprvEstaDocno != null">
+        APRV_ESTA_DOCNO,
+      </if>
+      <if test="prntAdmdvs != null">
+        PRNT_ADMDVS,
+      </if>
+      <if test="insuOptins != null">
+        INSU_OPTINS,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="poolarea != null">
+        POOLAREA,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+      <if test="dataSouc != null">
+        DATA_SOUC,
+      </if>
+      <if test="comuVilcmNo != null">
+        COMU_VILCM_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="comuVilcmInfoEvtId != null">
+        #{comuVilcmInfoEvtId,jdbcType=VARCHAR},
+      </if>
+      <if test="comuVilcmAdmdvsNo != null">
+        #{comuVilcmAdmdvsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="comuVilcmName != null">
+        #{comuVilcmName,jdbcType=VARCHAR},
+      </if>
+      <if test="comuVilcmType != null">
+        #{comuVilcmType,jdbcType=VARCHAR},
+      </if>
+      <if test="vilcmFlag != null">
+        #{vilcmFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="subdagcyId != null">
+        #{subdagcyId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgValiStas != null">
+        #{orgValiStas,jdbcType=VARCHAR},
+      </if>
+      <if test="conerName != null">
+        #{conerName,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="poscode != null">
+        #{poscode,jdbcType=VARCHAR},
+      </if>
+      <if test="conerEmail != null">
+        #{conerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="faxNo != null">
+        #{faxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="aprvEstaDept != null">
+        #{aprvEstaDept,jdbcType=VARCHAR},
+      </if>
+      <if test="aprvEstaDate != null">
+        #{aprvEstaDate,jdbcType=DATE},
+      </if>
+      <if test="aprvEstaDocno != null">
+        #{aprvEstaDocno,jdbcType=VARCHAR},
+      </if>
+      <if test="prntAdmdvs != null">
+        #{prntAdmdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="insuOptins != null">
+        #{insuOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSouc != null">
+        #{dataSouc,jdbcType=VARCHAR},
+      </if>
+      <if test="comuVilcmNo != null">
+        #{comuVilcmNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.ComuVilcmInfoB">
+    update comu_vilcm_info_b
+    <set>
+      <if test="comuVilcmAdmdvsNo != null">
+        COMU_VILCM_ADMDVS_NO = #{comuVilcmAdmdvsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="comuVilcmName != null">
+        COMU_VILCM_NAME = #{comuVilcmName,jdbcType=VARCHAR},
+      </if>
+      <if test="comuVilcmType != null">
+        COMU_VILCM_TYPE = #{comuVilcmType,jdbcType=VARCHAR},
+      </if>
+      <if test="vilcmFlag != null">
+        VILCM_FLAG = #{vilcmFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="subdagcyId != null">
+        SUBDAGCY_ID = #{subdagcyId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgValiStas != null">
+        ORG_VALI_STAS = #{orgValiStas,jdbcType=VARCHAR},
+      </if>
+      <if test="conerName != null">
+        CONER_NAME = #{conerName,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="poscode != null">
+        POSCODE = #{poscode,jdbcType=VARCHAR},
+      </if>
+      <if test="conerEmail != null">
+        CONER_EMAIL = #{conerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="faxNo != null">
+        FAX_NO = #{faxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="aprvEstaDept != null">
+        APRV_ESTA_DEPT = #{aprvEstaDept,jdbcType=VARCHAR},
+      </if>
+      <if test="aprvEstaDate != null">
+        APRV_ESTA_DATE = #{aprvEstaDate,jdbcType=DATE},
+      </if>
+      <if test="aprvEstaDocno != null">
+        APRV_ESTA_DOCNO = #{aprvEstaDocno,jdbcType=VARCHAR},
+      </if>
+      <if test="prntAdmdvs != null">
+        PRNT_ADMDVS = #{prntAdmdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="insuOptins != null">
+        INSU_OPTINS = #{insuOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSouc != null">
+        DATA_SOUC = #{dataSouc,jdbcType=VARCHAR},
+      </if>
+      <if test="comuVilcmNo != null">
+        COMU_VILCM_NO = #{comuVilcmNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COMU_VILCM_INFO_EVT_ID = #{comuVilcmInfoEvtId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.ComuVilcmInfoB">
+    update comu_vilcm_info_b
+    set COMU_VILCM_ADMDVS_NO = #{comuVilcmAdmdvsNo,jdbcType=VARCHAR},
+      COMU_VILCM_NAME = #{comuVilcmName,jdbcType=VARCHAR},
+      COMU_VILCM_TYPE = #{comuVilcmType,jdbcType=VARCHAR},
+      VILCM_FLAG = #{vilcmFlag,jdbcType=VARCHAR},
+      SUBDAGCY_ID = #{subdagcyId,jdbcType=VARCHAR},
+      ORG_VALI_STAS = #{orgValiStas,jdbcType=VARCHAR},
+      CONER_NAME = #{conerName,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      POSCODE = #{poscode,jdbcType=VARCHAR},
+      CONER_EMAIL = #{conerEmail,jdbcType=VARCHAR},
+      FAX_NO = #{faxNo,jdbcType=VARCHAR},
+      APRV_ESTA_DEPT = #{aprvEstaDept,jdbcType=VARCHAR},
+      APRV_ESTA_DATE = #{aprvEstaDate,jdbcType=DATE},
+      APRV_ESTA_DOCNO = #{aprvEstaDocno,jdbcType=VARCHAR},
+      PRNT_ADMDVS = #{prntAdmdvs,jdbcType=VARCHAR},
+      INSU_OPTINS = #{insuOptins,jdbcType=VARCHAR},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR},
+      DATA_SOUC = #{dataSouc,jdbcType=VARCHAR},
+      COMU_VILCM_NO = #{comuVilcmNo,jdbcType=VARCHAR}
+    where COMU_VILCM_INFO_EVT_ID = #{comuVilcmInfoEvtId,jdbcType=VARCHAR}
+  </update>
+</mapper>

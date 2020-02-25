@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.FmMemInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.FmMemInfoB">
+    <id column="HSER_MEM_NO" jdbcType="VARCHAR" property="hserMemNo" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="FM_ID" jdbcType="VARCHAR" property="fmId" />
+    <result column="ENDDATE" jdbcType="DATE" property="enddate" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="BEGNDATE" jdbcType="DATE" property="begndate" />
+    <result column="PSN_NO" jdbcType="VARCHAR" property="psnNo" />
+    <result column="POOLAREA" jdbcType="VARCHAR" property="poolarea" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="RLTS" jdbcType="VARCHAR" property="rlts" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HSER_MEM_NO, CRTER, CRTER_NAME, CRTE_TIME, FM_ID, ENDDATE, OPTINS, OPTER, OPTER_NAME, 
+    OPT_TIME, BEGNDATE, PSN_NO, POOLAREA, RID, VALI_FLAG, RLTS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fm_mem_info_b
+    where HSER_MEM_NO = #{hserMemNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fm_mem_info_b
+    where HSER_MEM_NO = #{hserMemNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.FmMemInfoB">
+    insert into fm_mem_info_b (HSER_MEM_NO, CRTER, CRTER_NAME, 
+      CRTE_TIME, FM_ID, ENDDATE, 
+      OPTINS, OPTER, OPTER_NAME, 
+      OPT_TIME, BEGNDATE, PSN_NO, 
+      POOLAREA, RID, VALI_FLAG, 
+      RLTS)
+    values (#{hserMemNo,jdbcType=VARCHAR}, #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, 
+      #{crteTime,jdbcType=TIMESTAMP}, #{fmId,jdbcType=VARCHAR}, #{enddate,jdbcType=DATE}, 
+      #{optins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, 
+      #{optTime,jdbcType=TIMESTAMP}, #{begndate,jdbcType=DATE}, #{psnNo,jdbcType=VARCHAR}, 
+      #{poolarea,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, #{valiFlag,jdbcType=VARCHAR}, 
+      #{rlts,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="dto.FmMemInfoB">
+    insert into fm_mem_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hserMemNo != null">
+        HSER_MEM_NO,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="fmId != null">
+        FM_ID,
+      </if>
+      <if test="enddate != null">
+        ENDDATE,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="begndate != null">
+        BEGNDATE,
+      </if>
+      <if test="psnNo != null">
+        PSN_NO,
+      </if>
+      <if test="poolarea != null">
+        POOLAREA,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="rlts != null">
+        RLTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hserMemNo != null">
+        #{hserMemNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fmId != null">
+        #{fmId,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="begndate != null">
+        #{begndate,jdbcType=DATE},
+      </if>
+      <if test="psnNo != null">
+        #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rlts != null">
+        #{rlts,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.FmMemInfoB">
+    update fm_mem_info_b
+    <set>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fmId != null">
+        FM_ID = #{fmId,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        ENDDATE = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="begndate != null">
+        BEGNDATE = #{begndate,jdbcType=DATE},
+      </if>
+      <if test="psnNo != null">
+        PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rlts != null">
+        RLTS = #{rlts,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HSER_MEM_NO = #{hserMemNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.FmMemInfoB">
+    update fm_mem_info_b
+    set CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      FM_ID = #{fmId,jdbcType=VARCHAR},
+      ENDDATE = #{enddate,jdbcType=DATE},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      BEGNDATE = #{begndate,jdbcType=DATE},
+      PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      RLTS = #{rlts,jdbcType=VARCHAR}
+    where HSER_MEM_NO = #{hserMemNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

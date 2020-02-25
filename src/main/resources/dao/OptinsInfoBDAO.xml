@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OptinsInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.OptinsInfoB">
+    <id column="HI_SYS_EMP_CODE" jdbcType="VARCHAR" property="hiSysEmpCode" />
+    <result column="OPTINS_NO" jdbcType="VARCHAR" property="optinsNo" />
+    <result column="DSCR_INFO" jdbcType="VARCHAR" property="dscrInfo" />
+    <result column="USCC" jdbcType="VARCHAR" property="uscc" />
+    <result column="LNT" jdbcType="VARCHAR" property="lnt" />
+    <result column="LAT" jdbcType="VARCHAR" property="lat" />
+    <result column="ADMDVS" jdbcType="VARCHAR" property="admdvs" />
+    <result column="ADDR" jdbcType="VARCHAR" property="addr" />
+    <result column="OPTINS_NAME" jdbcType="VARCHAR" property="optinsName" />
+    <result column="OPTINS_ABBR" jdbcType="VARCHAR" property="optinsAbbr" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="ORGUNT_TYPE" jdbcType="VARCHAR" property="orguntType" />
+    <result column="ORGUNT_TYPE_NAME" jdbcType="VARCHAR" property="orguntTypeName" />
+    <result column="AFIL_OPTINS_NO" jdbcType="VARCHAR" property="afilOptinsNo" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="UPDT_TIME" jdbcType="TIMESTAMP" property="updtTime" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HI_SYS_EMP_CODE, OPTINS_NO, DSCR_INFO, USCC, LNT, LAT, ADMDVS, ADDR, OPTINS_NAME, 
+    OPTINS_ABBR, VALI_FLAG, ORGUNT_TYPE, ORGUNT_TYPE_NAME, AFIL_OPTINS_NO, TEL, RID, 
+    CRTE_TIME, UPDT_TIME, CRTER, CRTER_NAME, CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, 
+    OPTINS, VER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from optins_info_b
+    where HI_SYS_EMP_CODE = #{hiSysEmpCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from optins_info_b
+    where HI_SYS_EMP_CODE = #{hiSysEmpCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.OptinsInfoB">
+    insert into optins_info_b (HI_SYS_EMP_CODE, OPTINS_NO, DSCR_INFO, 
+      USCC, LNT, LAT, ADMDVS, 
+      ADDR, OPTINS_NAME, OPTINS_ABBR, 
+      VALI_FLAG, ORGUNT_TYPE, ORGUNT_TYPE_NAME, 
+      AFIL_OPTINS_NO, TEL, RID, 
+      CRTE_TIME, UPDT_TIME, CRTER, 
+      CRTER_NAME, CRTE_OPTINS, OPTER, 
+      OPTER_NAME, OPT_TIME, OPTINS, 
+      VER)
+    values (#{hiSysEmpCode,jdbcType=VARCHAR}, #{optinsNo,jdbcType=VARCHAR}, #{dscrInfo,jdbcType=VARCHAR}, 
+      #{uscc,jdbcType=VARCHAR}, #{lnt,jdbcType=VARCHAR}, #{lat,jdbcType=VARCHAR}, #{admdvs,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{optinsName,jdbcType=VARCHAR}, #{optinsAbbr,jdbcType=VARCHAR}, 
+      #{valiFlag,jdbcType=VARCHAR}, #{orguntType,jdbcType=VARCHAR}, #{orguntTypeName,jdbcType=VARCHAR}, 
+      #{afilOptinsNo,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, 
+      #{crteTime,jdbcType=TIMESTAMP}, #{updtTime,jdbcType=TIMESTAMP}, #{crter,jdbcType=VARCHAR}, 
+      #{crterName,jdbcType=VARCHAR}, #{crteOptins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, 
+      #{opterName,jdbcType=VARCHAR}, #{optTime,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, 
+      #{ver,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="dto.OptinsInfoB">
+    insert into optins_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hiSysEmpCode != null">
+        HI_SYS_EMP_CODE,
+      </if>
+      <if test="optinsNo != null">
+        OPTINS_NO,
+      </if>
+      <if test="dscrInfo != null">
+        DSCR_INFO,
+      </if>
+      <if test="uscc != null">
+        USCC,
+      </if>
+      <if test="lnt != null">
+        LNT,
+      </if>
+      <if test="lat != null">
+        LAT,
+      </if>
+      <if test="admdvs != null">
+        ADMDVS,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="optinsName != null">
+        OPTINS_NAME,
+      </if>
+      <if test="optinsAbbr != null">
+        OPTINS_ABBR,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="orguntType != null">
+        ORGUNT_TYPE,
+      </if>
+      <if test="orguntTypeName != null">
+        ORGUNT_TYPE_NAME,
+      </if>
+      <if test="afilOptinsNo != null">
+        AFIL_OPTINS_NO,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hiSysEmpCode != null">
+        #{hiSysEmpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsNo != null">
+        #{optinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dscrInfo != null">
+        #{dscrInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="uscc != null">
+        #{uscc,jdbcType=VARCHAR},
+      </if>
+      <if test="lnt != null">
+        #{lnt,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="admdvs != null">
+        #{admdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsName != null">
+        #{optinsName,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsAbbr != null">
+        #{optinsAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="orguntType != null">
+        #{orguntType,jdbcType=VARCHAR},
+      </if>
+      <if test="orguntTypeName != null">
+        #{orguntTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="afilOptinsNo != null">
+        #{afilOptinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.OptinsInfoB">
+    update optins_info_b
+    <set>
+      <if test="optinsNo != null">
+        OPTINS_NO = #{optinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dscrInfo != null">
+        DSCR_INFO = #{dscrInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="uscc != null">
+        USCC = #{uscc,jdbcType=VARCHAR},
+      </if>
+      <if test="lnt != null">
+        LNT = #{lnt,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        LAT = #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="admdvs != null">
+        ADMDVS = #{admdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsName != null">
+        OPTINS_NAME = #{optinsName,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsAbbr != null">
+        OPTINS_ABBR = #{optinsAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="orguntType != null">
+        ORGUNT_TYPE = #{orguntType,jdbcType=VARCHAR},
+      </if>
+      <if test="orguntTypeName != null">
+        ORGUNT_TYPE_NAME = #{orguntTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="afilOptinsNo != null">
+        AFIL_OPTINS_NO = #{afilOptinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HI_SYS_EMP_CODE = #{hiSysEmpCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.OptinsInfoB">
+    update optins_info_b
+    set OPTINS_NO = #{optinsNo,jdbcType=VARCHAR},
+      DSCR_INFO = #{dscrInfo,jdbcType=VARCHAR},
+      USCC = #{uscc,jdbcType=VARCHAR},
+      LNT = #{lnt,jdbcType=VARCHAR},
+      LAT = #{lat,jdbcType=VARCHAR},
+      ADMDVS = #{admdvs,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      OPTINS_NAME = #{optinsName,jdbcType=VARCHAR},
+      OPTINS_ABBR = #{optinsAbbr,jdbcType=VARCHAR},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      ORGUNT_TYPE = #{orguntType,jdbcType=VARCHAR},
+      ORGUNT_TYPE_NAME = #{orguntTypeName,jdbcType=VARCHAR},
+      AFIL_OPTINS_NO = #{afilOptinsNo,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR}
+    where HI_SYS_EMP_CODE = #{hiSysEmpCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

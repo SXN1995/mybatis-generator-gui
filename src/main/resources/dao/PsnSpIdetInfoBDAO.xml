@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PsnSpIdetInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.PsnSpIdetInfoB">
+    <id column="PSN_SP_IDET_INFO_ID" jdbcType="VARCHAR" property="psnSpIdetInfoId" />
+    <result column="PSN_NO" jdbcType="VARCHAR" property="psnNo" />
+    <result column="PSN_NAME" jdbcType="VARCHAR" property="psnName" />
+    <result column="GEND" jdbcType="VARCHAR" property="gend" />
+    <result column="PSN_CERT_TYPE" jdbcType="VARCHAR" property="psnCertType" />
+    <result column="CERTNO" jdbcType="VARCHAR" property="certno" />
+    <result column="SP_TYPE" jdbcType="VARCHAR" property="spType" />
+    <result column="PSN_TYPE" jdbcType="VARCHAR" property="psnType" />
+    <result column="PSN_TYPE_LV" jdbcType="VARCHAR" property="psnTypeLv" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="BEGNTIME" jdbcType="TIMESTAMP" property="begntime" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="UPDT_TIME" jdbcType="TIMESTAMP" property="updtTime" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PSN_SP_IDET_INFO_ID, PSN_NO, PSN_NAME, GEND, PSN_CERT_TYPE, CERTNO, SP_TYPE, PSN_TYPE, 
+    PSN_TYPE_LV, MEMO, BEGNTIME, ENDTIME, VALI_FLAG, RID, CRTER, CRTER_NAME, CRTE_TIME, 
+    UPDT_TIME, CRTE_OPTINS, OPTINS, OPTER, OPTER_NAME, OPT_TIME, VER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from psn_sp_idet_info_b
+    where PSN_SP_IDET_INFO_ID = #{psnSpIdetInfoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from psn_sp_idet_info_b
+    where PSN_SP_IDET_INFO_ID = #{psnSpIdetInfoId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.PsnSpIdetInfoB">
+    insert into psn_sp_idet_info_b (PSN_SP_IDET_INFO_ID, PSN_NO, PSN_NAME, 
+      GEND, PSN_CERT_TYPE, CERTNO, 
+      SP_TYPE, PSN_TYPE, PSN_TYPE_LV, 
+      MEMO, BEGNTIME, ENDTIME, 
+      VALI_FLAG, RID, CRTER, 
+      CRTER_NAME, CRTE_TIME, UPDT_TIME, 
+      CRTE_OPTINS, OPTINS, OPTER, 
+      OPTER_NAME, OPT_TIME, VER
+      )
+    values (#{psnSpIdetInfoId,jdbcType=VARCHAR}, #{psnNo,jdbcType=VARCHAR}, #{psnName,jdbcType=VARCHAR}, 
+      #{gend,jdbcType=VARCHAR}, #{psnCertType,jdbcType=VARCHAR}, #{certno,jdbcType=VARCHAR}, 
+      #{spType,jdbcType=VARCHAR}, #{psnType,jdbcType=VARCHAR}, #{psnTypeLv,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{begntime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{valiFlag,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, #{crter,jdbcType=VARCHAR}, 
+      #{crterName,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, #{updtTime,jdbcType=TIMESTAMP}, 
+      #{crteOptins,jdbcType=VARCHAR}, #{optins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, 
+      #{opterName,jdbcType=VARCHAR}, #{optTime,jdbcType=TIMESTAMP}, #{ver,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="dto.PsnSpIdetInfoB">
+    insert into psn_sp_idet_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="psnSpIdetInfoId != null">
+        PSN_SP_IDET_INFO_ID,
+      </if>
+      <if test="psnNo != null">
+        PSN_NO,
+      </if>
+      <if test="psnName != null">
+        PSN_NAME,
+      </if>
+      <if test="gend != null">
+        GEND,
+      </if>
+      <if test="psnCertType != null">
+        PSN_CERT_TYPE,
+      </if>
+      <if test="certno != null">
+        CERTNO,
+      </if>
+      <if test="spType != null">
+        SP_TYPE,
+      </if>
+      <if test="psnType != null">
+        PSN_TYPE,
+      </if>
+      <if test="psnTypeLv != null">
+        PSN_TYPE_LV,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="begntime != null">
+        BEGNTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="psnSpIdetInfoId != null">
+        #{psnSpIdetInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="psnNo != null">
+        #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psnName != null">
+        #{psnName,jdbcType=VARCHAR},
+      </if>
+      <if test="gend != null">
+        #{gend,jdbcType=VARCHAR},
+      </if>
+      <if test="psnCertType != null">
+        #{psnCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="certno != null">
+        #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="spType != null">
+        #{spType,jdbcType=VARCHAR},
+      </if>
+      <if test="psnType != null">
+        #{psnType,jdbcType=VARCHAR},
+      </if>
+      <if test="psnTypeLv != null">
+        #{psnTypeLv,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="begntime != null">
+        #{begntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.PsnSpIdetInfoB">
+    update psn_sp_idet_info_b
+    <set>
+      <if test="psnNo != null">
+        PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psnName != null">
+        PSN_NAME = #{psnName,jdbcType=VARCHAR},
+      </if>
+      <if test="gend != null">
+        GEND = #{gend,jdbcType=VARCHAR},
+      </if>
+      <if test="psnCertType != null">
+        PSN_CERT_TYPE = #{psnCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="certno != null">
+        CERTNO = #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="spType != null">
+        SP_TYPE = #{spType,jdbcType=VARCHAR},
+      </if>
+      <if test="psnType != null">
+        PSN_TYPE = #{psnType,jdbcType=VARCHAR},
+      </if>
+      <if test="psnTypeLv != null">
+        PSN_TYPE_LV = #{psnTypeLv,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="begntime != null">
+        BEGNTIME = #{begntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PSN_SP_IDET_INFO_ID = #{psnSpIdetInfoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.PsnSpIdetInfoB">
+    update psn_sp_idet_info_b
+    set PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      PSN_NAME = #{psnName,jdbcType=VARCHAR},
+      GEND = #{gend,jdbcType=VARCHAR},
+      PSN_CERT_TYPE = #{psnCertType,jdbcType=VARCHAR},
+      CERTNO = #{certno,jdbcType=VARCHAR},
+      SP_TYPE = #{spType,jdbcType=VARCHAR},
+      PSN_TYPE = #{psnType,jdbcType=VARCHAR},
+      PSN_TYPE_LV = #{psnTypeLv,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      BEGNTIME = #{begntime,jdbcType=TIMESTAMP},
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      VER = #{ver,jdbcType=VARCHAR}
+    where PSN_SP_IDET_INFO_ID = #{psnSpIdetInfoId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.DrInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.DrInfoB">
+    <id column="DR_CODE" jdbcType="VARCHAR" property="drCode" />
+    <result column="PSN_NO" jdbcType="VARCHAR" property="psnNo" />
+    <result column="DR_NAME" jdbcType="VARCHAR" property="drName" />
+    <result column="PSN_ITRO" jdbcType="VARCHAR" property="psnItro" />
+    <result column="DR_PRAC_TYPE_NAME" jdbcType="VARCHAR" property="drPracTypeName" />
+    <result column="DR_PRAC_TYPE" jdbcType="VARCHAR" property="drPracType" />
+    <result column="DR_PRAC_SCP_CODE" jdbcType="VARCHAR" property="drPracScpCode" />
+    <result column="DR_PRAC_SCP_NAME" jdbcType="VARCHAR" property="drPracScpName" />
+    <result column="PRAC_REGN" jdbcType="VARCHAR" property="pracRegn" />
+    <result column="MUL_PRAC_FLAG" jdbcType="VARCHAR" property="mulPracFlag" />
+    <result column="MAIN_PRACINS_NO" jdbcType="VARCHAR" property="mainPracinsNo" />
+    <result column="MAIN_PRACINS_NAME" jdbcType="VARCHAR" property="mainPracinsName" />
+    <result column="MAIN_PRACINS_ADDR" jdbcType="VARCHAR" property="mainPracinsAddr" />
+    <result column="NEMP_TIME" jdbcType="TIMESTAMP" property="nempTime" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="RX_PERM_FLAG" jdbcType="VARCHAR" property="rxPermFlag" />
+    <result column="DR_PRO_TECH_DUTY" jdbcType="VARCHAR" property="drProTechDuty" />
+    <result column="DR_PRO_TECH_DUTY_NAME" jdbcType="VARCHAR" property="drProTechDutyName" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="UPDT_TIME" jdbcType="TIMESTAMP" property="updtTime" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DR_CODE, PSN_NO, DR_NAME, PSN_ITRO, DR_PRAC_TYPE_NAME, DR_PRAC_TYPE, DR_PRAC_SCP_CODE, 
+    DR_PRAC_SCP_NAME, PRAC_REGN, MUL_PRAC_FLAG, MAIN_PRACINS_NO, MAIN_PRACINS_NAME, MAIN_PRACINS_ADDR, 
+    NEMP_TIME, VALI_FLAG, RX_PERM_FLAG, DR_PRO_TECH_DUTY, DR_PRO_TECH_DUTY_NAME, RID, 
+    CRTE_TIME, UPDT_TIME, CRTER, CRTER_NAME, CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, 
+    OPTINS, VER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dr_info_b
+    where DR_CODE = #{drCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dr_info_b
+    where DR_CODE = #{drCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.DrInfoB">
+    insert into dr_info_b (DR_CODE, PSN_NO, DR_NAME, 
+      PSN_ITRO, DR_PRAC_TYPE_NAME, DR_PRAC_TYPE, 
+      DR_PRAC_SCP_CODE, DR_PRAC_SCP_NAME, PRAC_REGN, 
+      MUL_PRAC_FLAG, MAIN_PRACINS_NO, MAIN_PRACINS_NAME, 
+      MAIN_PRACINS_ADDR, NEMP_TIME, VALI_FLAG, 
+      RX_PERM_FLAG, DR_PRO_TECH_DUTY, DR_PRO_TECH_DUTY_NAME, 
+      RID, CRTE_TIME, UPDT_TIME, 
+      CRTER, CRTER_NAME, CRTE_OPTINS, 
+      OPTER, OPTER_NAME, OPT_TIME, 
+      OPTINS, VER)
+    values (#{drCode,jdbcType=VARCHAR}, #{psnNo,jdbcType=VARCHAR}, #{drName,jdbcType=VARCHAR}, 
+      #{psnItro,jdbcType=VARCHAR}, #{drPracTypeName,jdbcType=VARCHAR}, #{drPracType,jdbcType=VARCHAR}, 
+      #{drPracScpCode,jdbcType=VARCHAR}, #{drPracScpName,jdbcType=VARCHAR}, #{pracRegn,jdbcType=VARCHAR}, 
+      #{mulPracFlag,jdbcType=VARCHAR}, #{mainPracinsNo,jdbcType=VARCHAR}, #{mainPracinsName,jdbcType=VARCHAR}, 
+      #{mainPracinsAddr,jdbcType=VARCHAR}, #{nempTime,jdbcType=TIMESTAMP}, #{valiFlag,jdbcType=VARCHAR}, 
+      #{rxPermFlag,jdbcType=VARCHAR}, #{drProTechDuty,jdbcType=VARCHAR}, #{drProTechDutyName,jdbcType=VARCHAR}, 
+      #{rid,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, #{updtTime,jdbcType=TIMESTAMP}, 
+      #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, #{crteOptins,jdbcType=VARCHAR}, 
+      #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, #{optTime,jdbcType=TIMESTAMP}, 
+      #{optins,jdbcType=VARCHAR}, #{ver,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="dto.DrInfoB">
+    insert into dr_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="drCode != null">
+        DR_CODE,
+      </if>
+      <if test="psnNo != null">
+        PSN_NO,
+      </if>
+      <if test="drName != null">
+        DR_NAME,
+      </if>
+      <if test="psnItro != null">
+        PSN_ITRO,
+      </if>
+      <if test="drPracTypeName != null">
+        DR_PRAC_TYPE_NAME,
+      </if>
+      <if test="drPracType != null">
+        DR_PRAC_TYPE,
+      </if>
+      <if test="drPracScpCode != null">
+        DR_PRAC_SCP_CODE,
+      </if>
+      <if test="drPracScpName != null">
+        DR_PRAC_SCP_NAME,
+      </if>
+      <if test="pracRegn != null">
+        PRAC_REGN,
+      </if>
+      <if test="mulPracFlag != null">
+        MUL_PRAC_FLAG,
+      </if>
+      <if test="mainPracinsNo != null">
+        MAIN_PRACINS_NO,
+      </if>
+      <if test="mainPracinsName != null">
+        MAIN_PRACINS_NAME,
+      </if>
+      <if test="mainPracinsAddr != null">
+        MAIN_PRACINS_ADDR,
+      </if>
+      <if test="nempTime != null">
+        NEMP_TIME,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="rxPermFlag != null">
+        RX_PERM_FLAG,
+      </if>
+      <if test="drProTechDuty != null">
+        DR_PRO_TECH_DUTY,
+      </if>
+      <if test="drProTechDutyName != null">
+        DR_PRO_TECH_DUTY_NAME,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="drCode != null">
+        #{drCode,jdbcType=VARCHAR},
+      </if>
+      <if test="psnNo != null">
+        #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="drName != null">
+        #{drName,jdbcType=VARCHAR},
+      </if>
+      <if test="psnItro != null">
+        #{psnItro,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracTypeName != null">
+        #{drPracTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracType != null">
+        #{drPracType,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracScpCode != null">
+        #{drPracScpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracScpName != null">
+        #{drPracScpName,jdbcType=VARCHAR},
+      </if>
+      <if test="pracRegn != null">
+        #{pracRegn,jdbcType=VARCHAR},
+      </if>
+      <if test="mulPracFlag != null">
+        #{mulPracFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPracinsNo != null">
+        #{mainPracinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPracinsName != null">
+        #{mainPracinsName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPracinsAddr != null">
+        #{mainPracinsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="nempTime != null">
+        #{nempTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rxPermFlag != null">
+        #{rxPermFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="drProTechDuty != null">
+        #{drProTechDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="drProTechDutyName != null">
+        #{drProTechDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.DrInfoB">
+    update dr_info_b
+    <set>
+      <if test="psnNo != null">
+        PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="drName != null">
+        DR_NAME = #{drName,jdbcType=VARCHAR},
+      </if>
+      <if test="psnItro != null">
+        PSN_ITRO = #{psnItro,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracTypeName != null">
+        DR_PRAC_TYPE_NAME = #{drPracTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracType != null">
+        DR_PRAC_TYPE = #{drPracType,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracScpCode != null">
+        DR_PRAC_SCP_CODE = #{drPracScpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="drPracScpName != null">
+        DR_PRAC_SCP_NAME = #{drPracScpName,jdbcType=VARCHAR},
+      </if>
+      <if test="pracRegn != null">
+        PRAC_REGN = #{pracRegn,jdbcType=VARCHAR},
+      </if>
+      <if test="mulPracFlag != null">
+        MUL_PRAC_FLAG = #{mulPracFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPracinsNo != null">
+        MAIN_PRACINS_NO = #{mainPracinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPracinsName != null">
+        MAIN_PRACINS_NAME = #{mainPracinsName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPracinsAddr != null">
+        MAIN_PRACINS_ADDR = #{mainPracinsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="nempTime != null">
+        NEMP_TIME = #{nempTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rxPermFlag != null">
+        RX_PERM_FLAG = #{rxPermFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="drProTechDuty != null">
+        DR_PRO_TECH_DUTY = #{drProTechDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="drProTechDutyName != null">
+        DR_PRO_TECH_DUTY_NAME = #{drProTechDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DR_CODE = #{drCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.DrInfoB">
+    update dr_info_b
+    set PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      DR_NAME = #{drName,jdbcType=VARCHAR},
+      PSN_ITRO = #{psnItro,jdbcType=VARCHAR},
+      DR_PRAC_TYPE_NAME = #{drPracTypeName,jdbcType=VARCHAR},
+      DR_PRAC_TYPE = #{drPracType,jdbcType=VARCHAR},
+      DR_PRAC_SCP_CODE = #{drPracScpCode,jdbcType=VARCHAR},
+      DR_PRAC_SCP_NAME = #{drPracScpName,jdbcType=VARCHAR},
+      PRAC_REGN = #{pracRegn,jdbcType=VARCHAR},
+      MUL_PRAC_FLAG = #{mulPracFlag,jdbcType=VARCHAR},
+      MAIN_PRACINS_NO = #{mainPracinsNo,jdbcType=VARCHAR},
+      MAIN_PRACINS_NAME = #{mainPracinsName,jdbcType=VARCHAR},
+      MAIN_PRACINS_ADDR = #{mainPracinsAddr,jdbcType=VARCHAR},
+      NEMP_TIME = #{nempTime,jdbcType=TIMESTAMP},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      RX_PERM_FLAG = #{rxPermFlag,jdbcType=VARCHAR},
+      DR_PRO_TECH_DUTY = #{drProTechDuty,jdbcType=VARCHAR},
+      DR_PRO_TECH_DUTY_NAME = #{drProTechDutyName,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR}
+    where DR_CODE = #{drCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

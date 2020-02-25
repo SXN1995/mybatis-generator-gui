@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OptPsnBDAO">
+  <resultMap id="BaseResultMap" type="dto.OptPsnB">
+    <id column="OPTER_NO" jdbcType="VARCHAR" property="opterNo" />
+    <result column="PSN_NO" jdbcType="VARCHAR" property="psnNo" />
+    <result column="OPTINS_NO" jdbcType="VARCHAR" property="optinsNo" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="OPTER_TYPE" jdbcType="VARCHAR" property="opterType" />
+    <result column="CERTNO" jdbcType="VARCHAR" property="certno" />
+    <result column="PSN_CERT_TYPE" jdbcType="VARCHAR" property="psnCertType" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="MOB" jdbcType="VARCHAR" property="mob" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="UPDT_TIME" jdbcType="TIMESTAMP" property="updtTime" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    OPTER_NO, PSN_NO, OPTINS_NO, VALI_FLAG, MEMO, OPTER_TYPE, CERTNO, PSN_CERT_TYPE, 
+    TEL, MOB, RID, CRTE_TIME, UPDT_TIME, CRTER, CRTER_NAME, CRTE_OPTINS, OPTER, OPTER_NAME, 
+    OPT_TIME, OPTINS, VER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from opt_psn_b
+    where OPTER_NO = #{opterNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from opt_psn_b
+    where OPTER_NO = #{opterNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.OptPsnB">
+    insert into opt_psn_b (OPTER_NO, PSN_NO, OPTINS_NO, 
+      VALI_FLAG, MEMO, OPTER_TYPE, 
+      CERTNO, PSN_CERT_TYPE, TEL, 
+      MOB, RID, CRTE_TIME, 
+      UPDT_TIME, CRTER, CRTER_NAME, 
+      CRTE_OPTINS, OPTER, OPTER_NAME, 
+      OPT_TIME, OPTINS, VER
+      )
+    values (#{opterNo,jdbcType=VARCHAR}, #{psnNo,jdbcType=VARCHAR}, #{optinsNo,jdbcType=VARCHAR}, 
+      #{valiFlag,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{opterType,jdbcType=VARCHAR}, 
+      #{certno,jdbcType=VARCHAR}, #{psnCertType,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{mob,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, 
+      #{updtTime,jdbcType=TIMESTAMP}, #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, 
+      #{crteOptins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, 
+      #{optTime,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, #{ver,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="dto.OptPsnB">
+    insert into opt_psn_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="opterNo != null">
+        OPTER_NO,
+      </if>
+      <if test="psnNo != null">
+        PSN_NO,
+      </if>
+      <if test="optinsNo != null">
+        OPTINS_NO,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="opterType != null">
+        OPTER_TYPE,
+      </if>
+      <if test="certno != null">
+        CERTNO,
+      </if>
+      <if test="psnCertType != null">
+        PSN_CERT_TYPE,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="mob != null">
+        MOB,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="opterNo != null">
+        #{opterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psnNo != null">
+        #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsNo != null">
+        #{optinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="opterType != null">
+        #{opterType,jdbcType=VARCHAR},
+      </if>
+      <if test="certno != null">
+        #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="psnCertType != null">
+        #{psnCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mob != null">
+        #{mob,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.OptPsnB">
+    update opt_psn_b
+    <set>
+      <if test="psnNo != null">
+        PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="optinsNo != null">
+        OPTINS_NO = #{optinsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="opterType != null">
+        OPTER_TYPE = #{opterType,jdbcType=VARCHAR},
+      </if>
+      <if test="certno != null">
+        CERTNO = #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="psnCertType != null">
+        PSN_CERT_TYPE = #{psnCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mob != null">
+        MOB = #{mob,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OPTER_NO = #{opterNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.OptPsnB">
+    update opt_psn_b
+    set PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      OPTINS_NO = #{optinsNo,jdbcType=VARCHAR},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      OPTER_TYPE = #{opterType,jdbcType=VARCHAR},
+      CERTNO = #{certno,jdbcType=VARCHAR},
+      PSN_CERT_TYPE = #{psnCertType,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      MOB = #{mob,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR}
+    where OPTER_NO = #{opterNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

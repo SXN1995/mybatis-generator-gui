@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.FmBasInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.FmBasInfoB">
+    <id column="FM_ID" jdbcType="VARCHAR" property="fmId" />
+    <result column="INSU_PSNCNT" jdbcType="INTEGER" property="insuPsncnt" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="ADDR" jdbcType="VARCHAR" property="addr" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="CHK_RSLT" jdbcType="VARCHAR" property="chkRslt" />
+    <result column="RESDBOOK_NO" jdbcType="VARCHAR" property="resdbookNo" />
+    <result column="RESD_ADDR" jdbcType="VARCHAR" property="resdAddr" />
+    <result column="HSER_PSN_ID" jdbcType="VARCHAR" property="hserPsnId" />
+    <result column="HSER_IDCARD" jdbcType="VARCHAR" property="hserIdcard" />
+    <result column="HSER_NAME" jdbcType="VARCHAR" property="hserName" />
+    <result column="FM_POP" jdbcType="INTEGER" property="fmPop" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="CONER" jdbcType="VARCHAR" property="coner" />
+    <result column="POLSTAT" jdbcType="VARCHAR" property="polstat" />
+    <result column="COTY" jdbcType="VARCHAR" property="coty" />
+    <result column="SUBD" jdbcType="VARCHAR" property="subd" />
+    <result column="RSDT_EMP_NO" jdbcType="VARCHAR" property="rsdtEmpNo" />
+    <result column="POOLAREA" jdbcType="VARCHAR" property="poolarea" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FM_ID, INSU_PSNCNT, CRTER, CRTER_NAME, CRTE_TIME, ADDR, EMAIL, CHK_RSLT, RESDBOOK_NO, 
+    RESD_ADDR, HSER_PSN_ID, HSER_IDCARD, HSER_NAME, FM_POP, OPTINS, OPTER, OPTER_NAME, 
+    OPT_TIME, TEL, CONER, POLSTAT, COTY, SUBD, RSDT_EMP_NO, POOLAREA, RID, VALI_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fm_bas_info_b
+    where FM_ID = #{fmId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fm_bas_info_b
+    where FM_ID = #{fmId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.FmBasInfoB">
+    insert into fm_bas_info_b (FM_ID, INSU_PSNCNT, CRTER, 
+      CRTER_NAME, CRTE_TIME, ADDR, 
+      EMAIL, CHK_RSLT, RESDBOOK_NO, 
+      RESD_ADDR, HSER_PSN_ID, HSER_IDCARD, 
+      HSER_NAME, FM_POP, OPTINS, 
+      OPTER, OPTER_NAME, OPT_TIME, 
+      TEL, CONER, POLSTAT, 
+      COTY, SUBD, RSDT_EMP_NO, 
+      POOLAREA, RID, VALI_FLAG
+      )
+    values (#{fmId,jdbcType=VARCHAR}, #{insuPsncnt,jdbcType=INTEGER}, #{crter,jdbcType=VARCHAR}, 
+      #{crterName,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, #{addr,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{chkRslt,jdbcType=VARCHAR}, #{resdbookNo,jdbcType=VARCHAR}, 
+      #{resdAddr,jdbcType=VARCHAR}, #{hserPsnId,jdbcType=VARCHAR}, #{hserIdcard,jdbcType=VARCHAR}, 
+      #{hserName,jdbcType=VARCHAR}, #{fmPop,jdbcType=INTEGER}, #{optins,jdbcType=VARCHAR}, 
+      #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, #{optTime,jdbcType=TIMESTAMP}, 
+      #{tel,jdbcType=VARCHAR}, #{coner,jdbcType=VARCHAR}, #{polstat,jdbcType=VARCHAR}, 
+      #{coty,jdbcType=VARCHAR}, #{subd,jdbcType=VARCHAR}, #{rsdtEmpNo,jdbcType=VARCHAR}, 
+      #{poolarea,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, #{valiFlag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="dto.FmBasInfoB">
+    insert into fm_bas_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fmId != null">
+        FM_ID,
+      </if>
+      <if test="insuPsncnt != null">
+        INSU_PSNCNT,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="chkRslt != null">
+        CHK_RSLT,
+      </if>
+      <if test="resdbookNo != null">
+        RESDBOOK_NO,
+      </if>
+      <if test="resdAddr != null">
+        RESD_ADDR,
+      </if>
+      <if test="hserPsnId != null">
+        HSER_PSN_ID,
+      </if>
+      <if test="hserIdcard != null">
+        HSER_IDCARD,
+      </if>
+      <if test="hserName != null">
+        HSER_NAME,
+      </if>
+      <if test="fmPop != null">
+        FM_POP,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="coner != null">
+        CONER,
+      </if>
+      <if test="polstat != null">
+        POLSTAT,
+      </if>
+      <if test="coty != null">
+        COTY,
+      </if>
+      <if test="subd != null">
+        SUBD,
+      </if>
+      <if test="rsdtEmpNo != null">
+        RSDT_EMP_NO,
+      </if>
+      <if test="poolarea != null">
+        POOLAREA,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fmId != null">
+        #{fmId,jdbcType=VARCHAR},
+      </if>
+      <if test="insuPsncnt != null">
+        #{insuPsncnt,jdbcType=INTEGER},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="chkRslt != null">
+        #{chkRslt,jdbcType=VARCHAR},
+      </if>
+      <if test="resdbookNo != null">
+        #{resdbookNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resdAddr != null">
+        #{resdAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="hserPsnId != null">
+        #{hserPsnId,jdbcType=VARCHAR},
+      </if>
+      <if test="hserIdcard != null">
+        #{hserIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="hserName != null">
+        #{hserName,jdbcType=VARCHAR},
+      </if>
+      <if test="fmPop != null">
+        #{fmPop,jdbcType=INTEGER},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="coner != null">
+        #{coner,jdbcType=VARCHAR},
+      </if>
+      <if test="polstat != null">
+        #{polstat,jdbcType=VARCHAR},
+      </if>
+      <if test="coty != null">
+        #{coty,jdbcType=VARCHAR},
+      </if>
+      <if test="subd != null">
+        #{subd,jdbcType=VARCHAR},
+      </if>
+      <if test="rsdtEmpNo != null">
+        #{rsdtEmpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.FmBasInfoB">
+    update fm_bas_info_b
+    <set>
+      <if test="insuPsncnt != null">
+        INSU_PSNCNT = #{insuPsncnt,jdbcType=INTEGER},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="chkRslt != null">
+        CHK_RSLT = #{chkRslt,jdbcType=VARCHAR},
+      </if>
+      <if test="resdbookNo != null">
+        RESDBOOK_NO = #{resdbookNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resdAddr != null">
+        RESD_ADDR = #{resdAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="hserPsnId != null">
+        HSER_PSN_ID = #{hserPsnId,jdbcType=VARCHAR},
+      </if>
+      <if test="hserIdcard != null">
+        HSER_IDCARD = #{hserIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="hserName != null">
+        HSER_NAME = #{hserName,jdbcType=VARCHAR},
+      </if>
+      <if test="fmPop != null">
+        FM_POP = #{fmPop,jdbcType=INTEGER},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="coner != null">
+        CONER = #{coner,jdbcType=VARCHAR},
+      </if>
+      <if test="polstat != null">
+        POLSTAT = #{polstat,jdbcType=VARCHAR},
+      </if>
+      <if test="coty != null">
+        COTY = #{coty,jdbcType=VARCHAR},
+      </if>
+      <if test="subd != null">
+        SUBD = #{subd,jdbcType=VARCHAR},
+      </if>
+      <if test="rsdtEmpNo != null">
+        RSDT_EMP_NO = #{rsdtEmpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FM_ID = #{fmId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.FmBasInfoB">
+    update fm_bas_info_b
+    set INSU_PSNCNT = #{insuPsncnt,jdbcType=INTEGER},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      CHK_RSLT = #{chkRslt,jdbcType=VARCHAR},
+      RESDBOOK_NO = #{resdbookNo,jdbcType=VARCHAR},
+      RESD_ADDR = #{resdAddr,jdbcType=VARCHAR},
+      HSER_PSN_ID = #{hserPsnId,jdbcType=VARCHAR},
+      HSER_IDCARD = #{hserIdcard,jdbcType=VARCHAR},
+      HSER_NAME = #{hserName,jdbcType=VARCHAR},
+      FM_POP = #{fmPop,jdbcType=INTEGER},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      TEL = #{tel,jdbcType=VARCHAR},
+      CONER = #{coner,jdbcType=VARCHAR},
+      POLSTAT = #{polstat,jdbcType=VARCHAR},
+      COTY = #{coty,jdbcType=VARCHAR},
+      SUBD = #{subd,jdbcType=VARCHAR},
+      RSDT_EMP_NO = #{rsdtEmpNo,jdbcType=VARCHAR},
+      POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR}
+    where FM_ID = #{fmId,jdbcType=VARCHAR}
+  </update>
+</mapper>

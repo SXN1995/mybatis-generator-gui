@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ProfInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.ProfInfoB">
+    <id column="PROF_NO" jdbcType="VARCHAR" property="profNo" />
+    <result column="PSN_NO" jdbcType="VARCHAR" property="psnNo" />
+    <result column="PROF_NAME" jdbcType="VARCHAR" property="profName" />
+    <result column="OFF_TEL" jdbcType="VARCHAR" property="offTel" />
+    <result column="GEND" jdbcType="VARCHAR" property="gend" />
+    <result column="CURR_DUTY" jdbcType="VARCHAR" property="currDuty" />
+    <result column="PROF_TYPE" jdbcType="VARCHAR" property="profType" />
+    <result column="DEPT" jdbcType="VARCHAR" property="dept" />
+    <result column="PROF_DOMA" jdbcType="VARCHAR" property="profDoma" />
+    <result column="PROFAREA" jdbcType="VARCHAR" property="profarea" />
+    <result column="PRO_TECH_PROFTTL" jdbcType="VARCHAR" property="proTechProfttl" />
+    <result column="USCC" jdbcType="VARCHAR" property="uscc" />
+    <result column="EMP_NAME" jdbcType="VARCHAR" property="empName" />
+    <result column="PROFTTL_JOB_BEGNTIME" jdbcType="DATE" property="profttlJobBegntime" />
+    <result column="ITRO" jdbcType="VARCHAR" property="itro" />
+    <result column="EMP_ADDR" jdbcType="VARCHAR" property="empAddr" />
+    <result column="BEGNTIME" jdbcType="TIMESTAMP" property="begntime" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="ADMDVS" jdbcType="VARCHAR" property="admdvs" />
+    <result column="EMPPROF_FILE_ADDR" jdbcType="VARCHAR" property="empprofFileAddr" />
+    <result column="MOB" jdbcType="VARCHAR" property="mob" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="POSCODE" jdbcType="VARCHAR" property="poscode" />
+    <result column="DCLA_WAY" jdbcType="VARCHAR" property="dclaWay" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="UPDT_TIME" jdbcType="TIMESTAMP" property="updtTime" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROF_NO, PSN_NO, PROF_NAME, OFF_TEL, GEND, CURR_DUTY, PROF_TYPE, DEPT, PROF_DOMA, 
+    PROFAREA, PRO_TECH_PROFTTL, USCC, EMP_NAME, PROFTTL_JOB_BEGNTIME, ITRO, EMP_ADDR, 
+    BEGNTIME, ENDTIME, VALI_FLAG, ADMDVS, EMPPROF_FILE_ADDR, MOB, EMAIL, POSCODE, DCLA_WAY, 
+    RID, CRTE_TIME, UPDT_TIME, CRTER, CRTER_NAME, CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, 
+    OPTINS, VER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prof_info_b
+    where PROF_NO = #{profNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from prof_info_b
+    where PROF_NO = #{profNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.ProfInfoB">
+    insert into prof_info_b (PROF_NO, PSN_NO, PROF_NAME, 
+      OFF_TEL, GEND, CURR_DUTY, 
+      PROF_TYPE, DEPT, PROF_DOMA, 
+      PROFAREA, PRO_TECH_PROFTTL, USCC, 
+      EMP_NAME, PROFTTL_JOB_BEGNTIME, ITRO, 
+      EMP_ADDR, BEGNTIME, ENDTIME, 
+      VALI_FLAG, ADMDVS, EMPPROF_FILE_ADDR, 
+      MOB, EMAIL, POSCODE, 
+      DCLA_WAY, RID, CRTE_TIME, 
+      UPDT_TIME, CRTER, CRTER_NAME, 
+      CRTE_OPTINS, OPTER, OPTER_NAME, 
+      OPT_TIME, OPTINS, VER
+      )
+    values (#{profNo,jdbcType=VARCHAR}, #{psnNo,jdbcType=VARCHAR}, #{profName,jdbcType=VARCHAR}, 
+      #{offTel,jdbcType=VARCHAR}, #{gend,jdbcType=VARCHAR}, #{currDuty,jdbcType=VARCHAR}, 
+      #{profType,jdbcType=VARCHAR}, #{dept,jdbcType=VARCHAR}, #{profDoma,jdbcType=VARCHAR}, 
+      #{profarea,jdbcType=VARCHAR}, #{proTechProfttl,jdbcType=VARCHAR}, #{uscc,jdbcType=VARCHAR}, 
+      #{empName,jdbcType=VARCHAR}, #{profttlJobBegntime,jdbcType=DATE}, #{itro,jdbcType=VARCHAR}, 
+      #{empAddr,jdbcType=VARCHAR}, #{begntime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{valiFlag,jdbcType=VARCHAR}, #{admdvs,jdbcType=VARCHAR}, #{empprofFileAddr,jdbcType=VARCHAR}, 
+      #{mob,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{poscode,jdbcType=VARCHAR}, 
+      #{dclaWay,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, 
+      #{updtTime,jdbcType=TIMESTAMP}, #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, 
+      #{crteOptins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, 
+      #{optTime,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, #{ver,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="dto.ProfInfoB">
+    insert into prof_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="profNo != null">
+        PROF_NO,
+      </if>
+      <if test="psnNo != null">
+        PSN_NO,
+      </if>
+      <if test="profName != null">
+        PROF_NAME,
+      </if>
+      <if test="offTel != null">
+        OFF_TEL,
+      </if>
+      <if test="gend != null">
+        GEND,
+      </if>
+      <if test="currDuty != null">
+        CURR_DUTY,
+      </if>
+      <if test="profType != null">
+        PROF_TYPE,
+      </if>
+      <if test="dept != null">
+        DEPT,
+      </if>
+      <if test="profDoma != null">
+        PROF_DOMA,
+      </if>
+      <if test="profarea != null">
+        PROFAREA,
+      </if>
+      <if test="proTechProfttl != null">
+        PRO_TECH_PROFTTL,
+      </if>
+      <if test="uscc != null">
+        USCC,
+      </if>
+      <if test="empName != null">
+        EMP_NAME,
+      </if>
+      <if test="profttlJobBegntime != null">
+        PROFTTL_JOB_BEGNTIME,
+      </if>
+      <if test="itro != null">
+        ITRO,
+      </if>
+      <if test="empAddr != null">
+        EMP_ADDR,
+      </if>
+      <if test="begntime != null">
+        BEGNTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="admdvs != null">
+        ADMDVS,
+      </if>
+      <if test="empprofFileAddr != null">
+        EMPPROF_FILE_ADDR,
+      </if>
+      <if test="mob != null">
+        MOB,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="poscode != null">
+        POSCODE,
+      </if>
+      <if test="dclaWay != null">
+        DCLA_WAY,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="profNo != null">
+        #{profNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psnNo != null">
+        #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="profName != null">
+        #{profName,jdbcType=VARCHAR},
+      </if>
+      <if test="offTel != null">
+        #{offTel,jdbcType=VARCHAR},
+      </if>
+      <if test="gend != null">
+        #{gend,jdbcType=VARCHAR},
+      </if>
+      <if test="currDuty != null">
+        #{currDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="profType != null">
+        #{profType,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="profDoma != null">
+        #{profDoma,jdbcType=VARCHAR},
+      </if>
+      <if test="profarea != null">
+        #{profarea,jdbcType=VARCHAR},
+      </if>
+      <if test="proTechProfttl != null">
+        #{proTechProfttl,jdbcType=VARCHAR},
+      </if>
+      <if test="uscc != null">
+        #{uscc,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="profttlJobBegntime != null">
+        #{profttlJobBegntime,jdbcType=DATE},
+      </if>
+      <if test="itro != null">
+        #{itro,jdbcType=VARCHAR},
+      </if>
+      <if test="empAddr != null">
+        #{empAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="begntime != null">
+        #{begntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="admdvs != null">
+        #{admdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="empprofFileAddr != null">
+        #{empprofFileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="mob != null">
+        #{mob,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="poscode != null">
+        #{poscode,jdbcType=VARCHAR},
+      </if>
+      <if test="dclaWay != null">
+        #{dclaWay,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.ProfInfoB">
+    update prof_info_b
+    <set>
+      <if test="psnNo != null">
+        PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="profName != null">
+        PROF_NAME = #{profName,jdbcType=VARCHAR},
+      </if>
+      <if test="offTel != null">
+        OFF_TEL = #{offTel,jdbcType=VARCHAR},
+      </if>
+      <if test="gend != null">
+        GEND = #{gend,jdbcType=VARCHAR},
+      </if>
+      <if test="currDuty != null">
+        CURR_DUTY = #{currDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="profType != null">
+        PROF_TYPE = #{profType,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        DEPT = #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="profDoma != null">
+        PROF_DOMA = #{profDoma,jdbcType=VARCHAR},
+      </if>
+      <if test="profarea != null">
+        PROFAREA = #{profarea,jdbcType=VARCHAR},
+      </if>
+      <if test="proTechProfttl != null">
+        PRO_TECH_PROFTTL = #{proTechProfttl,jdbcType=VARCHAR},
+      </if>
+      <if test="uscc != null">
+        USCC = #{uscc,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        EMP_NAME = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="profttlJobBegntime != null">
+        PROFTTL_JOB_BEGNTIME = #{profttlJobBegntime,jdbcType=DATE},
+      </if>
+      <if test="itro != null">
+        ITRO = #{itro,jdbcType=VARCHAR},
+      </if>
+      <if test="empAddr != null">
+        EMP_ADDR = #{empAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="begntime != null">
+        BEGNTIME = #{begntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="admdvs != null">
+        ADMDVS = #{admdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="empprofFileAddr != null">
+        EMPPROF_FILE_ADDR = #{empprofFileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="mob != null">
+        MOB = #{mob,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="poscode != null">
+        POSCODE = #{poscode,jdbcType=VARCHAR},
+      </if>
+      <if test="dclaWay != null">
+        DCLA_WAY = #{dclaWay,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updtTime != null">
+        UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROF_NO = #{profNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.ProfInfoB">
+    update prof_info_b
+    set PSN_NO = #{psnNo,jdbcType=VARCHAR},
+      PROF_NAME = #{profName,jdbcType=VARCHAR},
+      OFF_TEL = #{offTel,jdbcType=VARCHAR},
+      GEND = #{gend,jdbcType=VARCHAR},
+      CURR_DUTY = #{currDuty,jdbcType=VARCHAR},
+      PROF_TYPE = #{profType,jdbcType=VARCHAR},
+      DEPT = #{dept,jdbcType=VARCHAR},
+      PROF_DOMA = #{profDoma,jdbcType=VARCHAR},
+      PROFAREA = #{profarea,jdbcType=VARCHAR},
+      PRO_TECH_PROFTTL = #{proTechProfttl,jdbcType=VARCHAR},
+      USCC = #{uscc,jdbcType=VARCHAR},
+      EMP_NAME = #{empName,jdbcType=VARCHAR},
+      PROFTTL_JOB_BEGNTIME = #{profttlJobBegntime,jdbcType=DATE},
+      ITRO = #{itro,jdbcType=VARCHAR},
+      EMP_ADDR = #{empAddr,jdbcType=VARCHAR},
+      BEGNTIME = #{begntime,jdbcType=TIMESTAMP},
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      ADMDVS = #{admdvs,jdbcType=VARCHAR},
+      EMPPROF_FILE_ADDR = #{empprofFileAddr,jdbcType=VARCHAR},
+      MOB = #{mob,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      POSCODE = #{poscode,jdbcType=VARCHAR},
+      DCLA_WAY = #{dclaWay,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR}
+    where PROF_NO = #{profNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

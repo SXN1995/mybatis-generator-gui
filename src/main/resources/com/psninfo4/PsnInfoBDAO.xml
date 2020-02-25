@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao4.PsnInfoBDAO">
+  <resultMap id="BaseResultMap" type="com.entity4.PsnInfoB">
+    <result column="psn_no" jdbcType="VARCHAR" property="psn_no" />
+    <result column="psn_mgtcode" jdbcType="VARCHAR" property="psn_mgtcode" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="alis" jdbcType="VARCHAR" property="alis" />
+    <result column="gend" jdbcType="VARCHAR" property="gend" />
+    <result column="brdy" jdbcType="DATE" property="brdy" />
+    <result column="cert_type" jdbcType="VARCHAR" property="cert_type" />
+    <result column="cert_no" jdbcType="VARCHAR" property="cert_no" />
+    <result column="hsecfc_codg" jdbcType="VARCHAR" property="hsecfc_codg" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="mob" jdbcType="VARCHAR" property="mob" />
+    <result column="naty" jdbcType="VARCHAR" property="naty" />
+    <result column="nat_regn_code" jdbcType="VARCHAR" property="nat_regn_code" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="polstas" jdbcType="VARCHAR" property="polstas" />
+    <result column="patc_job_date" jdbcType="DATE" property="patc_job_date" />
+    <result column="resd_nat" jdbcType="VARCHAR" property="resd_nat" />
+    <result column="resd_loc_admdvs" jdbcType="VARCHAR" property="resd_loc_admdvs" />
+    <result column="resd_addr" jdbcType="VARCHAR" property="resd_addr" />
+    <result column="resd_addr_poscode" jdbcType="VARCHAR" property="resd_addr_poscode" />
+    <result column="live_admdvs" jdbcType="VARCHAR" property="live_admdvs" />
+    <result column="live_addr" jdbcType="VARCHAR" property="live_addr" />
+    <result column="live_addr_poscode" jdbcType="VARCHAR" property="live_addr_poscode" />
+    <result column="resdbook_no" jdbcType="VARCHAR" property="resdbook_no" />
+    <result column="mrg_stas" jdbcType="VARCHAR" property="mrg_stas" />
+    <result column="hlcon" jdbcType="VARCHAR" property="hlcon" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="surv_stas" jdbcType="VARCHAR" property="surv_stas" />
+    <result column="mul_prov_mnt_flag" jdbcType="VARCHAR" property="mul_prov_mnt_flag" />
+    <result column="admdut" jdbcType="VARCHAR" property="admdut" />
+    <result column="emp_stas" jdbcType="VARCHAR" property="emp_stas" />
+    <result column="retr_type" jdbcType="VARCHAR" property="retr_type" />
+    <result column="grad_schl" jdbcType="VARCHAR" property="grad_schl" />
+    <result column="educ" jdbcType="VARCHAR" property="educ" />
+    <result column="pro_tech_duty_lv" jdbcType="VARCHAR" property="pro_tech_duty_lv" />
+    <result column="nat_prof_qua_lv" jdbcType="VARCHAR" property="nat_prof_qua_lv" />
+    <result column="rid" jdbcType="VARCHAR" property="rid" />
+    <result column="crter" jdbcType="VARCHAR" property="crter" />
+    <result column="crter_name" jdbcType="VARCHAR" property="crter_name" />
+    <result column="crte_time" jdbcType="TIMESTAMP" property="crte_time" />
+    <result column="crte_optins" jdbcType="VARCHAR" property="crte_optins" />
+    <result column="opter" jdbcType="VARCHAR" property="opter" />
+    <result column="opter_name" jdbcType="VARCHAR" property="opter_name" />
+    <result column="opt_time" jdbcType="TIMESTAMP" property="opt_time" />
+    <result column="optins" jdbcType="VARCHAR" property="optins" />
+    <result column="ver" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <insert id="insert" keyColumn="psn_no" keyProperty="psn_no" parameterType="com.entity4.PsnInfoB" useGeneratedKeys="true">
+    insert into psn_info_b (psn_mgtcode, `name`, alis, 
+      gend, brdy, cert_type, 
+      cert_no, hsecfc_codg, tel, 
+      mob, naty, nat_regn_code, 
+      email, polstas, patc_job_date, 
+      resd_nat, resd_loc_admdvs, resd_addr, 
+      resd_addr_poscode, live_admdvs, live_addr, 
+      live_addr_poscode, resdbook_no, mrg_stas, 
+      hlcon, memo, surv_stas, 
+      mul_prov_mnt_flag, admdut, emp_stas, 
+      retr_type, grad_schl, educ, 
+      pro_tech_duty_lv, nat_prof_qua_lv, rid, 
+      crter, crter_name, crte_time, 
+      crte_optins, opter, opter_name, 
+      opt_time, optins, ver
+      )
+    values (#{psn_mgtcode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{alis,jdbcType=VARCHAR}, 
+      #{gend,jdbcType=VARCHAR}, #{brdy,jdbcType=DATE}, #{cert_type,jdbcType=VARCHAR}, 
+      #{cert_no,jdbcType=VARCHAR}, #{hsecfc_codg,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{mob,jdbcType=VARCHAR}, #{naty,jdbcType=VARCHAR}, #{nat_regn_code,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{polstas,jdbcType=VARCHAR}, #{patc_job_date,jdbcType=DATE}, 
+      #{resd_nat,jdbcType=VARCHAR}, #{resd_loc_admdvs,jdbcType=VARCHAR}, #{resd_addr,jdbcType=VARCHAR}, 
+      #{resd_addr_poscode,jdbcType=VARCHAR}, #{live_admdvs,jdbcType=VARCHAR}, #{live_addr,jdbcType=VARCHAR}, 
+      #{live_addr_poscode,jdbcType=VARCHAR}, #{resdbook_no,jdbcType=VARCHAR}, #{mrg_stas,jdbcType=VARCHAR}, 
+      #{hlcon,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{surv_stas,jdbcType=VARCHAR}, 
+      #{mul_prov_mnt_flag,jdbcType=VARCHAR}, #{admdut,jdbcType=VARCHAR}, #{emp_stas,jdbcType=VARCHAR}, 
+      #{retr_type,jdbcType=VARCHAR}, #{grad_schl,jdbcType=VARCHAR}, #{educ,jdbcType=VARCHAR}, 
+      #{pro_tech_duty_lv,jdbcType=VARCHAR}, #{nat_prof_qua_lv,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, 
+      #{crter,jdbcType=VARCHAR}, #{crter_name,jdbcType=VARCHAR}, #{crte_time,jdbcType=TIMESTAMP}, 
+      #{crte_optins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opter_name,jdbcType=VARCHAR}, 
+      #{opt_time,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, #{ver,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="psn_no" keyProperty="psn_no" parameterType="com.entity4.PsnInfoB" useGeneratedKeys="true">
+    insert into psn_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="psn_mgtcode != null">
+        psn_mgtcode,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="alis != null">
+        alis,
+      </if>
+      <if test="gend != null">
+        gend,
+      </if>
+      <if test="brdy != null">
+        brdy,
+      </if>
+      <if test="cert_type != null">
+        cert_type,
+      </if>
+      <if test="cert_no != null">
+        cert_no,
+      </if>
+      <if test="hsecfc_codg != null">
+        hsecfc_codg,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="mob != null">
+        mob,
+      </if>
+      <if test="naty != null">
+        naty,
+      </if>
+      <if test="nat_regn_code != null">
+        nat_regn_code,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="polstas != null">
+        polstas,
+      </if>
+      <if test="patc_job_date != null">
+        patc_job_date,
+      </if>
+      <if test="resd_nat != null">
+        resd_nat,
+      </if>
+      <if test="resd_loc_admdvs != null">
+        resd_loc_admdvs,
+      </if>
+      <if test="resd_addr != null">
+        resd_addr,
+      </if>
+      <if test="resd_addr_poscode != null">
+        resd_addr_poscode,
+      </if>
+      <if test="live_admdvs != null">
+        live_admdvs,
+      </if>
+      <if test="live_addr != null">
+        live_addr,
+      </if>
+      <if test="live_addr_poscode != null">
+        live_addr_poscode,
+      </if>
+      <if test="resdbook_no != null">
+        resdbook_no,
+      </if>
+      <if test="mrg_stas != null">
+        mrg_stas,
+      </if>
+      <if test="hlcon != null">
+        hlcon,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="surv_stas != null">
+        surv_stas,
+      </if>
+      <if test="mul_prov_mnt_flag != null">
+        mul_prov_mnt_flag,
+      </if>
+      <if test="admdut != null">
+        admdut,
+      </if>
+      <if test="emp_stas != null">
+        emp_stas,
+      </if>
+      <if test="retr_type != null">
+        retr_type,
+      </if>
+      <if test="grad_schl != null">
+        grad_schl,
+      </if>
+      <if test="educ != null">
+        educ,
+      </if>
+      <if test="pro_tech_duty_lv != null">
+        pro_tech_duty_lv,
+      </if>
+      <if test="nat_prof_qua_lv != null">
+        nat_prof_qua_lv,
+      </if>
+      <if test="rid != null">
+        rid,
+      </if>
+      <if test="crter != null">
+        crter,
+      </if>
+      <if test="crter_name != null">
+        crter_name,
+      </if>
+      <if test="crte_time != null">
+        crte_time,
+      </if>
+      <if test="crte_optins != null">
+        crte_optins,
+      </if>
+      <if test="opter != null">
+        opter,
+      </if>
+      <if test="opter_name != null">
+        opter_name,
+      </if>
+      <if test="opt_time != null">
+        opt_time,
+      </if>
+      <if test="optins != null">
+        optins,
+      </if>
+      <if test="ver != null">
+        ver,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="psn_mgtcode != null">
+        #{psn_mgtcode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alis != null">
+        #{alis,jdbcType=VARCHAR},
+      </if>
+      <if test="gend != null">
+        #{gend,jdbcType=VARCHAR},
+      </if>
+      <if test="brdy != null">
+        #{brdy,jdbcType=DATE},
+      </if>
+      <if test="cert_type != null">
+        #{cert_type,jdbcType=VARCHAR},
+      </if>
+      <if test="cert_no != null">
+        #{cert_no,jdbcType=VARCHAR},
+      </if>
+      <if test="hsecfc_codg != null">
+        #{hsecfc_codg,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mob != null">
+        #{mob,jdbcType=VARCHAR},
+      </if>
+      <if test="naty != null">
+        #{naty,jdbcType=VARCHAR},
+      </if>
+      <if test="nat_regn_code != null">
+        #{nat_regn_code,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="polstas != null">
+        #{polstas,jdbcType=VARCHAR},
+      </if>
+      <if test="patc_job_date != null">
+        #{patc_job_date,jdbcType=DATE},
+      </if>
+      <if test="resd_nat != null">
+        #{resd_nat,jdbcType=VARCHAR},
+      </if>
+      <if test="resd_loc_admdvs != null">
+        #{resd_loc_admdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="resd_addr != null">
+        #{resd_addr,jdbcType=VARCHAR},
+      </if>
+      <if test="resd_addr_poscode != null">
+        #{resd_addr_poscode,jdbcType=VARCHAR},
+      </if>
+      <if test="live_admdvs != null">
+        #{live_admdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="live_addr != null">
+        #{live_addr,jdbcType=VARCHAR},
+      </if>
+      <if test="live_addr_poscode != null">
+        #{live_addr_poscode,jdbcType=VARCHAR},
+      </if>
+      <if test="resdbook_no != null">
+        #{resdbook_no,jdbcType=VARCHAR},
+      </if>
+      <if test="mrg_stas != null">
+        #{mrg_stas,jdbcType=VARCHAR},
+      </if>
+      <if test="hlcon != null">
+        #{hlcon,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="surv_stas != null">
+        #{surv_stas,jdbcType=VARCHAR},
+      </if>
+      <if test="mul_prov_mnt_flag != null">
+        #{mul_prov_mnt_flag,jdbcType=VARCHAR},
+      </if>
+      <if test="admdut != null">
+        #{admdut,jdbcType=VARCHAR},
+      </if>
+      <if test="emp_stas != null">
+        #{emp_stas,jdbcType=VARCHAR},
+      </if>
+      <if test="retr_type != null">
+        #{retr_type,jdbcType=VARCHAR},
+      </if>
+      <if test="grad_schl != null">
+        #{grad_schl,jdbcType=VARCHAR},
+      </if>
+      <if test="educ != null">
+        #{educ,jdbcType=VARCHAR},
+      </if>
+      <if test="pro_tech_duty_lv != null">
+        #{pro_tech_duty_lv,jdbcType=VARCHAR},
+      </if>
+      <if test="nat_prof_qua_lv != null">
+        #{nat_prof_qua_lv,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crter_name != null">
+        #{crter_name,jdbcType=VARCHAR},
+      </if>
+      <if test="crte_time != null">
+        #{crte_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crte_optins != null">
+        #{crte_optins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opter_name != null">
+        #{opter_name,jdbcType=VARCHAR},
+      </if>
+      <if test="opt_time != null">
+        #{opt_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

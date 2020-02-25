@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.SchlBasInfoBDAO">
+  <resultMap id="BaseResultMap" type="dto.SchlBasInfoB">
+    <id column="SCHL_BAS_INFO_ID" jdbcType="VARCHAR" property="schlBasInfoId" />
+    <result column="SCHL_NO" jdbcType="VARCHAR" property="schlNo" />
+    <result column="ORG_VALI_STAS" jdbcType="VARCHAR" property="orgValiStas" />
+    <result column="ORG_TYPE" jdbcType="VARCHAR" property="orgType" />
+    <result column="SCHL_TYPE" jdbcType="VARCHAR" property="schlType" />
+    <result column="SCHL_NATU" jdbcType="VARCHAR" property="schlNatu" />
+    <result column="EMP_NO" jdbcType="VARCHAR" property="empNo" />
+    <result column="VALI_FLAG" jdbcType="VARCHAR" property="valiFlag" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="POOLAREA" jdbcType="VARCHAR" property="poolarea" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SCHL_BAS_INFO_ID, SCHL_NO, ORG_VALI_STAS, ORG_TYPE, SCHL_TYPE, SCHL_NATU, EMP_NO, 
+    VALI_FLAG, RID, CRTER, CRTER_NAME, CRTE_TIME, CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, 
+    OPTINS, POOLAREA, VER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from schl_bas_info_b
+    where SCHL_BAS_INFO_ID = #{schlBasInfoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from schl_bas_info_b
+    where SCHL_BAS_INFO_ID = #{schlBasInfoId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="dto.SchlBasInfoB">
+    insert into schl_bas_info_b (SCHL_BAS_INFO_ID, SCHL_NO, ORG_VALI_STAS, 
+      ORG_TYPE, SCHL_TYPE, SCHL_NATU, 
+      EMP_NO, VALI_FLAG, RID, 
+      CRTER, CRTER_NAME, CRTE_TIME, 
+      CRTE_OPTINS, OPTER, OPTER_NAME, 
+      OPT_TIME, OPTINS, POOLAREA, 
+      VER)
+    values (#{schlBasInfoId,jdbcType=VARCHAR}, #{schlNo,jdbcType=VARCHAR}, #{orgValiStas,jdbcType=VARCHAR}, 
+      #{orgType,jdbcType=VARCHAR}, #{schlType,jdbcType=VARCHAR}, #{schlNatu,jdbcType=VARCHAR}, 
+      #{empNo,jdbcType=VARCHAR}, #{valiFlag,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, 
+      #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, 
+      #{crteOptins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, 
+      #{optTime,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, #{poolarea,jdbcType=VARCHAR}, 
+      #{ver,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="dto.SchlBasInfoB">
+    insert into schl_bas_info_b
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="schlBasInfoId != null">
+        SCHL_BAS_INFO_ID,
+      </if>
+      <if test="schlNo != null">
+        SCHL_NO,
+      </if>
+      <if test="orgValiStas != null">
+        ORG_VALI_STAS,
+      </if>
+      <if test="orgType != null">
+        ORG_TYPE,
+      </if>
+      <if test="schlType != null">
+        SCHL_TYPE,
+      </if>
+      <if test="schlNatu != null">
+        SCHL_NATU,
+      </if>
+      <if test="empNo != null">
+        EMP_NO,
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="poolarea != null">
+        POOLAREA,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="schlBasInfoId != null">
+        #{schlBasInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="schlNo != null">
+        #{schlNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgValiStas != null">
+        #{orgValiStas,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null">
+        #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="schlType != null">
+        #{schlType,jdbcType=VARCHAR},
+      </if>
+      <if test="schlNatu != null">
+        #{schlNatu,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        #{empNo,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="dto.SchlBasInfoB">
+    update schl_bas_info_b
+    <set>
+      <if test="schlNo != null">
+        SCHL_NO = #{schlNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgValiStas != null">
+        ORG_VALI_STAS = #{orgValiStas,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null">
+        ORG_TYPE = #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="schlType != null">
+        SCHL_TYPE = #{schlType,jdbcType=VARCHAR},
+      </if>
+      <if test="schlNatu != null">
+        SCHL_NATU = #{schlNatu,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        EMP_NO = #{empNo,jdbcType=VARCHAR},
+      </if>
+      <if test="valiFlag != null">
+        VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="poolarea != null">
+        POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SCHL_BAS_INFO_ID = #{schlBasInfoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dto.SchlBasInfoB">
+    update schl_bas_info_b
+    set SCHL_NO = #{schlNo,jdbcType=VARCHAR},
+      ORG_VALI_STAS = #{orgValiStas,jdbcType=VARCHAR},
+      ORG_TYPE = #{orgType,jdbcType=VARCHAR},
+      SCHL_TYPE = #{schlType,jdbcType=VARCHAR},
+      SCHL_NATU = #{schlNatu,jdbcType=VARCHAR},
+      EMP_NO = #{empNo,jdbcType=VARCHAR},
+      VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      POOLAREA = #{poolarea,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR}
+    where SCHL_BAS_INFO_ID = #{schlBasInfoId,jdbcType=VARCHAR}
+  </update>
+</mapper>
